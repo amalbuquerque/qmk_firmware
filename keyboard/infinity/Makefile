@@ -28,9 +28,12 @@ INCLUDE_PATHS = -I.
 
 
 # Build Options
-#   Comment out to disable
-#BOOTMAGIC_ENABLE = yes
+# 2015-08-07, AA: Comment out to disable, not working yet also
+# BOOTMAGIC_ENABLE = yes
 #MOUSEKEY_ENABLE = yes
+# 2015-08-07, AA: to enable media keys, not working yet
+# EXTRAKEY_ENABLE = yes
+# SLEEP_LED_ENABLE = yes
 
 
 include mbed-infinity.mk

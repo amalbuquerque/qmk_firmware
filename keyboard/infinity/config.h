@@ -29,7 +29,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define DESCRIPTION     Massdrop Infinity keyboard firmware by tmk
 
 // 2015-08-07, AA:
-#define TAPPING_TERM 150 // default = 200ms
+#define TAPPING_TERM 200 // default = 200ms
 
 
 /* matrix size */

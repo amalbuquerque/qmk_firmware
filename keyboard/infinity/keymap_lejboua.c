@@ -44,7 +44,7 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * ,-----------------------------------------------------------.
      * |PWR| F1| F2| F3| F4| F5| F6| F7| F8| F9|F10|F11|F12|ShT|Tab| ShT = Shift+Tab
      * |-----------------------------------------------------------|
-     * |Caps |F13|F14|F15|F16|   |   |Hom|End|   |Pau|   |   | Del |
+     * |Caps |F13|F14|F15|F16| ~ |   |Hom|End|   |Pau|   |   | Del | ~ = Shift+`
      * |-----------------------------------------------------------|
      * |Ctrl  |F17|F18|F19|F20| ` |Lef|Dow| Up|Rig| Bs|   | Enter  |
      * |-----------------------------------------------------------|
@@ -55,7 +55,7 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      */
     [1] = KEYMAP( \
         PWR , F1 ,  F2,  F3,  F4,  F5,  F6,  F7,  F8,  F9, F10,   F11 ,F12, FN5 , TAB, \
-        CAPS,F13 , F14, F15, F16,  NO,  NO,HOME,END , NO ,PAUS,   NO  ,NO , DEL ,      \
+        CAPS,F13 , F14, F15, F16, FN6,  NO,HOME,END , NO ,PAUS,   NO  ,NO , DEL ,      \
         TRNS,F17 , F18, F19, F20, GRV,LEFT,DOWN,  UP,RGHT,   BSPC,NO  ,     TRNS,      \
         TRNS,VOLD,VOLU,MUTE,MPLY,  NO, END, DEL,   INS ,PGDN, PGUP,          NO , F21, \
         FN1 ,TRNS,TRNS,               FN2,                     TRNS, FN1, NO , FN3),
@@ -98,5 +98,6 @@ const uint16_t PROGMEM fn_actions[] = {
     // [6] = ACTION_MODS_KEY(MOD_LSFT, KC_TAB) 		// Fn6 (on Fn1+`) Shift+Tab
 
     [4] = ACTION_MODS_TAP_KEY(MOD_RCTL, KC_SCLN),       // Fn4 (on ;) Activates RCtrl
-    [5] = ACTION_MODS_KEY(MOD_LSFT, KC_TAB) 		// Fn5 (on Fn1+`) Shift+Tab
+    [5] = ACTION_MODS_KEY(MOD_LSFT, KC_TAB), 		// Fn5 (on Fn1+`) Shift + Tab
+    [6] = ACTION_MODS_KEY(MOD_LSFT, KC_GRV) 		// Fn6 (on Fn1+T) Shift + `
 };

@@ -26,7 +26,7 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * |-----------------------------------------------------------|
      * |Tab  |  Q|  W|  E|  R|  T|  Y|  U|  I|  O|  P|  [|  ]| Bsp |
      * |-----------------------------------------------------------|
-     * |Ctrl  |  A|  S|  D|  F|  G|  H|  J|  K|  L|;F4|  '| Enter  |
+     * |Ctrl  |  A|  S|  D|  F|  G|  H|  J|  K|  L| ; |F4'| Enter  |
      * |-----------------------------------------------------------|
      * |Shift   |  Z|  X|  C|  V|  B|  N|  M|  ,|  .|  /|Shift |Del|
      * |-----------------------------------------------------------'
@@ -36,17 +36,17 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [0] = KEYMAP( \
         ESC, 1,   2,   3,   4,   5,   6,   7,   8,   9,   0,   MINS,EQL, GRV ,BSLS, \
         TAB, Q,   W,   E,   R,   T,   Y,   U,   I,   O,   P,   LBRC,RBRC,BSPC,      \
-        LCTL,A,   S,   D,   F,   G,   H,   J,   K,   L,   FN4 ,QUOT,     ENT ,      \
+        LCTL,A,   S,   D,   F,   G,   H,   J,   K,   L,   SCLN, FN4,     ENT ,      \
         LSFT,Z,   X,   C,   V,   B,   N,   M,   COMM,DOT, SLSH,          RSFT,DEL,  \
         FN1 ,LGUI,LALT,               FN2,                     RALT,FN1 ,APP ,FN3 ),
 
     /* Function 1 Layer
      * ,-----------------------------------------------------------.
-     * |PWR| F1| F2| F3| F4| F5| F6| F7| F8| F9|F10|F11|F12|ShT|Tab| ShT = Shift+Tab
+     * |PWR| F1| F2| F3| F4| F5| F6| F7| F8| F9|F10|F11|F12|   |   |
      * |-----------------------------------------------------------|
-     * |Caps |F13|F14|F15|F16| ~ |   |Hom|End|   |Pau|   |   | Del | ~ = Shift+`
+     * |Caps |F13|F14|F15|F16| ` |   |Hom|End|   |Pau|   |   | Del |
      * |-----------------------------------------------------------|
-     * |Ctrl  |F17|F18|F19|F20| ` |Lef|Dow| Up|Rig| Bs|   | Enter  |
+     * |Ctrl  |F17|F18|F19|F20| ~ |Lef|Dow| Up|Rig| Bs|   | Enter  | ~ = Shift+`
      * |-----------------------------------------------------------|
      * |Shift   |VoD|VoU|Mut|Ply|   |End|Del|Ins|PgD|PgU|      |F21|
      * |-----------------------------------------------------------'
@@ -54,9 +54,9 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * `-----------------------------------------------------------'
      */
     [1] = KEYMAP( \
-        PWR , F1 ,  F2,  F3,  F4,  F5,  F6,  F7,  F8,  F9, F10,   F11 ,F12, FN5 , TAB, \
-        CAPS,F13 , F14, F15, F16, FN6,  NO,HOME,END , NO ,PAUS,   NO  ,NO , DEL ,      \
-        TRNS,F17 , F18, F19, F20, GRV,LEFT,DOWN,  UP,RGHT,   BSPC,NO  ,     TRNS,      \
+        PWR , F1 ,  F2,  F3,  F4,  F5,  F6,  F7,  F8,  F9, F10,   F11 ,F12, NO  , NO , \
+        CAPS,F13 , F14, F15, F16, GRV,  NO,HOME,END , NO ,PAUS,   NO  ,NO , DEL ,      \
+        TRNS,F17 , F18, F19, F20, FN5,LEFT,DOWN,  UP,RGHT,   BSPC,NO  ,     TRNS,      \
         TRNS,VOLD,VOLU,MUTE,MPLY,  NO, END, DEL,   INS ,PGDN, PGUP,          NO , F21, \
         FN1 ,TRNS,TRNS,               FN2,                     TRNS, FN1, NO , FN3),
 
@@ -93,11 +93,11 @@ const uint16_t PROGMEM fn_actions[] = {
     [3] = ACTION_LAYER_MOMENTARY(2),                    // Fn3 Activates Layer 2
 
     // 2015-08-11, AA: Removed Fn4 from Enter
-    // [4] = ACTION_LAYER_TAP_KEY(2, KC_ENT),              // Fn4 (on Enter) Activates Layer 2
-    // [5] = ACTION_MODS_TAP_KEY(MOD_RCTL, KC_SCLN),       // Fn5 (on ;) Activates RCtrl
+    // [4] = ACTION_LAYER_TAP_KEY(2, KC_ENT),           // Fn4 (on Enter) Activates Layer 2
+    // [5] = ACTION_MODS_TAP_KEY(MOD_RCTL, KC_SCLN),    // Fn5 (on ;) Activates RCtrl
     // [6] = ACTION_MODS_KEY(MOD_LSFT, KC_TAB) 		// Fn6 (on Fn1+`) Shift+Tab
 
-    [4] = ACTION_MODS_TAP_KEY(MOD_RCTL, KC_SCLN),       // Fn4 (on ;) Activates RCtrl
-    [5] = ACTION_MODS_KEY(MOD_LSFT, KC_TAB), 		// Fn5 (on Fn1+`) Shift + Tab
-    [6] = ACTION_MODS_KEY(MOD_LSFT, KC_GRV) 		// Fn6 (on Fn1+T) Shift + `
+    [4] = ACTION_MODS_TAP_KEY(MOD_RCTL, KC_QUOT),       // Fn4 (on ') Activates RCtrl
+    // [5] = ACTION_MODS_KEY(MOD_LSFT, KC_TAB), 	// Fn5 (on Fn1+`) Shift + Tab
+    [5] = ACTION_MODS_KEY(MOD_LSFT, KC_GRV) 		// Fn5 (on Fn1+G) Shift + `
 };

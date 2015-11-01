@@ -16,6 +16,8 @@ $ git clone -b kinetis https://github.com/flabbergast/ChibiOS.git tmk_core/tool/
 $ cd tmk_keyboard/keyboard/infinity_chibios
 $ make
 
+2015-10-31@23h52 AA: make KEYMAP=lejboua
+
 
 
 

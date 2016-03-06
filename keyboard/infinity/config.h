@@ -28,6 +28,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define PRODUCT         Infinitiy
 #define DESCRIPTION     Massdrop Infinity keyboard firmware by tmk
 
+// 2015-08-07, AA:
+#define TAPPING_TERM 200 // default = 200ms
+
 
 /* matrix size */
 #define MATRIX_ROWS 9   // Strobe

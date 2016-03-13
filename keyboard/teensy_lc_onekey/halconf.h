@@ -163,6 +163,25 @@
 #define HAL_USE_USB                 TRUE
 #endif
 
+/**
+ * @brief   Enables the WDG subsystem.
+ */
+#if !defined(HAL_USE_WDG) || defined(__DOXYGEN__)
+#define HAL_USE_WDG                 FALSE
+#endif
+
+/*===========================================================================*/
+/* USB driver related settings.                                              */
+/*===========================================================================*/
+
+/**
+ * @brief   Enables synchronous APIs.
+ * @note    Disabling this option saves both code and data space.
+ */
+#if !defined(USB_USE_WAIT) || defined(__DOXYGEN__)
+#define USB_USE_WAIT                TRUE
+#endif
+
 #endif /* _HALCONF_H_ */
 
 /** @} */

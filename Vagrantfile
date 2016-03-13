@@ -32,13 +32,31 @@ Vagrant.configure(2) do |config|
     vb.gui = false
     # Uncomment the below lines if you want to program
     # your Teensy via the VM rather than your host OS
-    #vb.customize ['modifyvm', :id, '--usb', 'on']
-    #vb.customize ['usbfilter', 'add', '0',
-    #    	  '--target', :id,
-    #    	  '--name', 'teensy',
-    #    	  '--vendorid', '0x16c0',
-    #    	  '--productid','0x0478'
-    #		 ] 
+    vb.customize ['modifyvm', :id, '--usb', 'on']
+    vb.customize ['usbfilter', 'add', '0',
+        	  '--target', :id,
+        	  '--name', 'ATMEGA 32u4 Bootloader',
+        	  '--vendorid', '0x03eb',
+        	  '--productid','0x2ff4'
+    		 ]
+    vb.customize ['usbfilter', 'add', '1',
+        	  '--target', :id,
+        	  '--name', 'Planck Keyboard',
+        	  '--vendorid', '0xfeed',
+        	  '--productid','0x6060'
+    		 ]
+    vb.customize ['usbfilter', 'add', '2',
+        	  '--target', :id,
+        	  '--name', 'Infinity 60% Keyboard',
+        	  '--vendorid', '0xfeed',
+        	  '--productid','0x6464'
+    		 ]
+    vb.customize ['usbfilter', 'add', '3',
+        	  '--target', :id,
+        	  '--name', 'Kiibohd DFU Bootloader mk20dx128vlf5',
+        	  '--vendorid', '0x1c11',
+        	  '--productid','0xb007'
+    		 ]
     # Customize the amount of memory on the VM:
     vb.memory = "512"
   end

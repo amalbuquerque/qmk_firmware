@@ -43,3 +43,8 @@ include $(TMK_DIR)/tool/mbed/gcc.mk
 
 program: $(OBJDIR)/$(PROJECT).bin
 	dfu-util -D $(OBJDIR)/$(PROJECT).bin
+
+# 2016/03/05 22:51:48, AA: copied from above, just to have 
+# the same target as the planck
+dfu: $(OBJDIR)/$(PROJECT).bin
+	dfu-util -D $(OBJDIR)/$(PROJECT).bin

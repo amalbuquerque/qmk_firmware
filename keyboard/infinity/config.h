@@ -25,11 +25,13 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #endif
 #define DEVICE_VER      0x0001
 #define MANUFACTURER    tmk.
-#define PRODUCT         Infinitiy
+#define PRODUCT         Infinity
 #define DESCRIPTION     Massdrop Infinity keyboard firmware by tmk
 
 // 2015-08-07, AA:
 #define TAPPING_TERM 200 // default = 200ms
+// 2016/03/12, AA:
+#define TAPPING_TOGGLE 2 // default = 5 times
 
 
 /* matrix size */
@@ -38,6 +40,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 /* key combination for command */
 #define IS_COMMAND() (keyboard_report->mods == (MOD_BIT(KC_LSHIFT) | MOD_BIT(KC_RSHIFT))) 
+
+// 2016/03/12 23:59:48, AA: Copied from quantum/keymap_common.h
+#define MACRODOWN(...) (record->event.pressed ? MACRO(__VA_ARGS__) : MACRO_NONE)
 
 
 /* for prototype */

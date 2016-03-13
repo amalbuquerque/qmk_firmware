@@ -28,6 +28,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "debug.h"
 #include "keymap.h"
 
+// 2016/03/12 19:02:06, AA: Trying to enable Reset key as in the Planck
+// (copied from qmk\quantum\keymap_common.h)
+#define KC_RESET 0x5000
+#define KC_DEBUG 0x5001
+
 
 extern const uint8_t keymaps[][MATRIX_ROWS][MATRIX_COLS];
 extern const uint16_t fn_actions[];

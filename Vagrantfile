@@ -58,7 +58,9 @@ Vagrant.configure(2) do |config|
         	  '--productid','0xb007'
     		 ]
     # Customize the amount of memory on the VM:
-    vb.memory = "512"
+    # 2016/03/18 22:42:53, AA: Had to raise the RAM to build gcc 4.9.3
+    # according to: http://dustint.com/post/669/gentoo-gcc-recipe-for-target-s-attrtab-failed
+    vb.memory = "1536"
   end
 
   # This section allows you to customize the VMware VM

@@ -87,3 +87,8 @@ include $(TMK_DIR)/tool/chibios/chibios.mk
 
 program: $(BUILDDIR)/$(PROJECT).bin
 	dfu-util -D $(BUILDDIR)/$(PROJECT).bin
+
+# 2016/03/19 10:49:39, AA: copied from above, just to have
+# the same target as the planck
+dfu: $(BUILDDIR)/$(PROJECT).bin
+	dfu-util -D $(BUILDDIR)/$(PROJECT).bin

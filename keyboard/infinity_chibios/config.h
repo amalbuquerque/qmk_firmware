@@ -53,6 +53,13 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 /* Keymap for Infinity prototype */
 //#define INFINITY_PROTOTYPE
 
+// 2015-08-07, AA:
+#define TAPPING_TERM 200 // default = 200ms
+// 2016/03/12, AA:
+#define TAPPING_TOGGLE 2 // default = 5 times
+
+// 2016/03/12 23:59:48, AA: Copied from quantum/keymap_common.h
+#define MACRODOWN(...) (record->event.pressed ? MACRO(__VA_ARGS__) : MACRO_NONE)
 
 /*
  * Feature disable options

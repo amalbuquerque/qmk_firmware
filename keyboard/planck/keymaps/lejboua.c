@@ -12,6 +12,14 @@
 #define F4_LAYER 4
 #define F5_LAYER 5
 
+enum macro_id {
+    // 2016/03/20 19:26:24, AA: BACKLIGHT_STEP existed already
+    _BACKLIGHT_STEP,
+    PARENS,
+    CRLY_PARENS,
+    SQUR_PARENS
+};
+
 /* 2016/02/08 20:20:20, AA: Template */
 /* {KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS}, */
 
@@ -20,7 +28,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   {FUNC(3),      KC_Q,    KC_W,    KC_E,   KC_R,     KC_T,    KC_Y,           KC_U,    KC_I,    KC_O,      KC_P,    FUNC(4)         },
   {CTL_T(KC_TAB),KC_A,    KC_S,    KC_D,   KC_F,     KC_G,    KC_H,           KC_J,    KC_K,    KC_L,      KC_SCLN, KC_ENT          },
   {KC_LSFT,      KC_Z,    KC_X,    KC_C,   KC_V,     KC_B,    KC_N,           KC_M,    KC_COMM, KC_DOT,    KC_SLSH, SFT_T(KC_DELETE)},
-  {MO(F1_LAYER), KC_LGUI, FUNC(6), KC_LALT, FUNC(0), FUNC(5), CTL_T(KC_BSPC), FUNC(1), KC_RALT, KC_DELETE, FUNC(2), MO(F2_LAYER)    }
+  {FUNC(7), KC_LGUI, FUNC(6), KC_LALT, FUNC(0), FUNC(5), CTL_T(KC_BSPC), FUNC(1), KC_RALT, KC_DELETE, FUNC(2), MO(F2_LAYER)    }
 },
 [F1_LAYER] = { /* F1_Layer */
   {KC_TAB,  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_GRV,    KC_TRNS, KC_HOME,   KC_TRNS, KC_MINS, KC_EQL,  KC_GRV },
@@ -42,14 +50,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 },
 [F4_LAYER] = { /* F4_Layer */
   {KC_PWR,  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_PSCR, KC_SLCK,  KC_PAUS, RESET  },
-  {KC_SLEP, KC_TRNS, KC_MPRV, KC_MNXT, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,  KC_TRNS, M(0)   },
+  {KC_SLEP, KC_TRNS, KC_MPRV, KC_MNXT, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,  KC_TRNS, M(_BACKLIGHT_STEP)   },
   {KC_TRNS, KC_VOLU, KC_VOLD, KC_MUTE, KC_MPLY, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,  KC_TRNS, KC_TRNS},
   {KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,  KC_TRNS, KC_TRNS}
 },
 [F5_LAYER] = { /* F5_Layer */
-  {KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_NLCK, KC_KP_7, KC_KP_8, KC_KP_9, KC_TRNS, KC_TRNS, KC_TRNS},
-  {KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_KP_4, KC_KP_5, KC_KP_6, KC_TRNS, KC_TRNS, KC_TRNS},
-  {KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_KP_0, KC_KP_1, KC_KP_2, KC_KP_3, KC_TRNS, KC_TRNS, KC_TRNS},
+/* {FUNC(3),KC_Q,    KC_W,    KC_E,    KC_R,           KC_T,        KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    FUNC(4)         }, */
+  {KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_KP_SLASH,    KC_KP_MINUS, KC_KP_7, KC_KP_8, KC_KP_9, KC_TRNS, KC_TRNS, KC_TRNS},
+  {KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_KP_ASTERISK, KC_KP_PLUS,  KC_KP_4, KC_KP_5, KC_KP_6, KC_TRNS, KC_BSPC, KC_TRNS},
+  {KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_NLCK,        KC_KP_0,     KC_KP_1, KC_KP_2, KC_KP_3, KC_DOT,  KC_TRNS, KC_TRNS},
   {KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS}
 }
 };
@@ -60,22 +69,16 @@ const uint16_t PROGMEM fn_actions[] = {
     [2] = ACTION_LAYER_TAP_KEY(F4_LAYER, KC_APP),  // Tap for app, hold for F4_LAYER
     [3] = ACTION_LAYER_TAP_KEY(F3_LAYER, KC_ESC),  // Tap for esc, hold for F3_LAYER
     [4] = ACTION_LAYER_TAP_KEY(F3_LAYER, KC_BSLS), // Tap for backslash, hold for F3_LAYER
-    [5] = ACTION_LAYER_TAP_KEY(F3_LAYER, KC_ESC),  // Tap for esc, hold for F3_LAYER
-    [6] = ACTION_LAYER_TAP_KEY(F5_LAYER, KC_TAB)   // Tap for tab, hold for F5_LAYER
-};
-
-enum macro_id {
-    BACKLIGHT_STEP,
-    PARENS,
-    CRLY_PARENS,
-    SQUR_PARENS
+    [5] = ACTION_LAYER_TAP_TOGGLE(F3_LAYER),       // Double tap for activating F3_Layer, hold for F3_LAYER
+    [6] = ACTION_LAYER_TAP_TOGGLE(F5_LAYER),  // Double tap for activating F5_LAYER, hold for F5_LAYER
+    [7] = ACTION_LAYER_TAP_TOGGLE(F1_LAYER)        // Double tap for activating F1_LAYER, hold for F1_LAYER
 };
 
 const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt)
 {
   // MACRODOWN only works in this function
       switch(id) {
-        case BACKLIGHT_STEP: // Backlight step
+        case _BACKLIGHT_STEP: // Backlight step
             if (record->event.pressed) {
               backlight_step();
             }

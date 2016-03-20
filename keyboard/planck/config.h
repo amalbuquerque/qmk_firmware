@@ -78,6 +78,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 /* disable print */
 #define NO_PRINT
 
+// 2015-08-07, AA:
+#define TAPPING_TERM 200 // default = 200ms
+// 2016/03/12, AA:
+#define TAPPING_TOGGLE 2 // default = 5 times
+
 /* disable action features */
 //#define NO_ACTION_LAYER
 //#define NO_ACTION_TAPPING

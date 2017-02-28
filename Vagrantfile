@@ -32,16 +32,46 @@ Vagrant.configure(2) do |config|
     vb.gui = false
     # Uncomment the below lines if you want to program
     # your Teensy via the VM rather than your host OS
-    #vb.customize ['modifyvm', :id, '--usb', 'on']
-    #vb.customize ['usbfilter', 'add', '0',
-    #    	  '--target', :id,
-    #    	  '--name', 'teensy',
-    #    	  '--vendorid', '0x16c0',
-    #    	  '--productid','0x0478'
-    #		 ]
+    vb.customize ['modifyvm', :id, '--usb', 'on']
+    vb.customize ['usbfilter', 'add', '0',
+        	  '--target', :id,
+        	  '--name', 'promicro',
+        	  '--vendorid', '0x2341',
+        	  '--productid','0x0036'
+    		 ]
+    vb.customize ['usbfilter', 'add', '1',
+        	  '--target', :id,
+        	  '--name', 'promicro',
+        	  '--vendorid', '0x2341',
+        	  '--productid','0x8036'
+    		 ]
     # Customize the amount of memory on the VM:
     vb.memory = "512"
   end
+
+# Bootloader mode, after shorting GND and RST twice, for *only* 8 secs
+# UUID:               fd823e5d-b774-4faa-b40c-9ea270557a21
+# VendorId:           0x2341 (2341)
+# ProductId:          0x0036 (0036)
+# Revision:           0.1 (0001)
+# Port:               0
+# USB version/speed:  1/Full
+# Manufacturer:       Arduino LLC
+# Product:            Arduino Leonardo
+# Address:            {4d36e978-e325-11ce-bfc1-08002be10318}\0003
+# Current State:      Busy
+
+# Normal Pro Micro mode
+# UUID:               f5b38e7a-6e0c-4d28-a423-0e1d981fdf5e
+# VendorId:           0x2341 (2341)
+# ProductId:          0x8036 (8036)
+# Revision:           1.0 (0100)
+# Port:               0
+# USB version/speed:  2/High
+# Manufacturer:       Arduino LLC
+# Product:            Arduino Leonardo
+# Address:            {36fc9e60-c465-11cf-8056-444553540000}\0007
+# Current State:      Busy
 
   # This section allows you to customize the VMware VM
   # settings, ie showing the GUI or upping the memory

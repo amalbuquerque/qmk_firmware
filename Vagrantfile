@@ -45,11 +45,18 @@ Vagrant.configure(2) do |config|
         	  '--vendorid', '0x2341',
         	  '--productid','0x8036'
     		 ]
+    vb.customize ['usbfilter', 'add', '2',
+        	  '--target', :id,
+        	  '--name', 'promicro',
+        	  '--vendorid', '0xFEED',
+        	  '--productid','0x6060'
+    		 ]
     # Customize the amount of memory on the VM:
     vb.memory = "512"
   end
 
 # Bootloader mode, after shorting GND and RST twice, for *only* 8 secs
+# (w/o loading any firmware yet)
 # UUID:               fd823e5d-b774-4faa-b40c-9ea270557a21
 # VendorId:           0x2341 (2341)
 # ProductId:          0x0036 (0036)
@@ -61,7 +68,7 @@ Vagrant.configure(2) do |config|
 # Address:            {4d36e978-e325-11ce-bfc1-08002be10318}\0003
 # Current State:      Busy
 
-# Normal Pro Micro mode
+# Normal Pro Micro mode (w/o loading any firmware yet)
 # UUID:               f5b38e7a-6e0c-4d28-a423-0e1d981fdf5e
 # VendorId:           0x2341 (2341)
 # ProductId:          0x8036 (8036)
@@ -71,6 +78,18 @@ Vagrant.configure(2) do |config|
 # Manufacturer:       Arduino LLC
 # Product:            Arduino Leonardo
 # Address:            {36fc9e60-c465-11cf-8056-444553540000}\0007
+# Current State:      Busy
+
+# After loading my first firmware
+# UUID:               00a96173-f4ee-4ed7-8b9d-d4906a5b0010
+# VendorId:           0xfeed (FEED)
+# ProductId:          0x6060 (6060)
+# Revision:           0.1 (0001)
+# Port:               0
+# USB version/speed:  1/Full
+# Manufacturer:       Lejboua
+# Product:            macropad_2x5
+# Address:            {36fc9e60-c465-11cf-8056-444553540000}\0010
 # Current State:      Busy
 
   # This section allows you to customize the VMware VM

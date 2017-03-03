@@ -23,7 +23,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 /* USB Device descriptor parameter */
 #define VENDOR_ID       0xFEED
 #define PRODUCT_ID      0x6060
-#define DEVICE_VER      0x0001
+#define DEVICE_VER      0x0002
 #define MANUFACTURER    Lejboua
 #define PRODUCT         macropad_2x5
 #define DESCRIPTION     Lejboua custom 2x5 macropad
@@ -43,7 +43,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
 */
 #define MATRIX_ROW_PINS { B3, B6 }
-#define MATRIX_COL_PINS { F4, F5, F6, F7, B1 }
+#define MATRIX_COL_PINS { B1, F7, F6, F5, F4 }
 #define UNUSED_PINS
 
 /* COL2ROW, ROW2COL, or CUSTOM_MATRIX */

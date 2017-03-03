@@ -1,0 +1,1 @@
+# The default keymap for macropad_2x5

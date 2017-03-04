@@ -12,18 +12,16 @@ enum macro_id {
     TMUX_ZOM,
     TMUX_PHR,
     TMUX_PVR,
-    TMUX_REN,
     TMUX_NWD,
     WIN_LFT,
     WIN_RGT,
+    WIN_UP,
+    WIN_DW,
     WIN_FLL,
-    TMUX_WD0,
-    TMUX_WD1,
-    TMUX_WD2,
-    TMUX_WD3,
-    TMUX_WD4,
-    TMUX_WD5,
-    PARENS
+    TMUX_PN0,
+    TMUX_PN1,
+    TMUX_PN2,
+    TMUX_PN3
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -32,8 +30,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       M(ALTTAB),  M(COPY), M(TMUX_VIS), M(TMUX_PHR), M(TMUX_NWD)
     ),
     [_WINDOW_MGMT] = KEYMAP( /* Numbers */
-      M(TMUX_WD1), M(TMUX_WD3), M(TMUX_WD5), M(WIN_RGT), M(WIN_FLL), \
-      M(TMUX_WD0), M(TMUX_WD2), M(TMUX_WD4), M(WIN_LFT), M(TMUX_REN)
+      M(TMUX_PN1), M(TMUX_PN3), M(WIN_RGT), M(WIN_UP), KC_TRNS, \
+      M(TMUX_PN0), M(TMUX_PN2), M(WIN_LFT), M(WIN_DW), M(WIN_FLL)
     )
 };
 
@@ -85,11 +83,6 @@ const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt)
             return MACRODOWN( DOWN(KC_LCTL), TYPE(KC_A), UP(KC_LCTL), TYPE(KC_SLASH), END );
           }
           break;
-        case TMUX_REN: // Macro M()
-          if (record->event.pressed) {
-            return MACRODOWN( DOWN(KC_LCTL), TYPE(KC_A), UP(KC_LCTL), TYPE(KC_COMMA), END );
-          }
-          break;
         case TMUX_NWD: // Macro M()
           if (record->event.pressed) {
             return MACRODOWN( DOWN(KC_LCTL), TYPE(KC_A), UP(KC_LCTL), TYPE(KC_N), END );
@@ -97,12 +90,22 @@ const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt)
           break;
         case WIN_LFT: // Macro M()
           if (record->event.pressed) {
-            return MACRODOWN( DOWN(KC_LCTL), DOWN(KC_LALT), TYPE(KC_LEFT), UP(KC_LALT), UP(KC_LCTL), END );
+            return MACRODOWN( DOWN(KC_LGUI), TYPE(KC_LEFT), UP(KC_LGUI), END );
           }
           break;
         case WIN_RGT: // Macro M()
           if (record->event.pressed) {
-            return MACRODOWN( DOWN(KC_LCTL), DOWN(KC_LALT), TYPE(KC_RGHT), UP(KC_LALT), UP(KC_LCTL), END );
+            return MACRODOWN( DOWN(KC_LGUI), TYPE(KC_RIGHT), UP(KC_LGUI), END );
+          }
+          break;
+        case WIN_UP: // Macro M()
+          if (record->event.pressed) {
+            return MACRODOWN( DOWN(KC_LGUI), TYPE(KC_UP), UP(KC_LGUI), END );
+          }
+          break;
+        case WIN_DW: // Macro M()
+          if (record->event.pressed) {
+            return MACRODOWN( DOWN(KC_LGUI), TYPE(KC_DOWN), UP(KC_LGUI), END );
           }
           break;
         case WIN_FLL: // Macro M()
@@ -110,39 +113,24 @@ const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt)
             return MACRODOWN( DOWN(KC_LGUI), TYPE(KC_BSLASH), UP(KC_LGUI), END );
           }
           break;
-        case TMUX_WD0: // Macro M()
+        case TMUX_PN0: // Macro M()
           if (record->event.pressed) {
-            return MACRODOWN( DOWN(KC_LCTL), TYPE(KC_A), UP(KC_LCTL), TYPE(KC_0), END );
+            return MACRODOWN( DOWN(KC_LCTL), TYPE(KC_A), UP(KC_LCTL), TYPE(KC_Q), TYPE(KC_0), END );
           }
           break;
-        case TMUX_WD1: // Macro M()
+        case TMUX_PN1: // Macro M()
           if (record->event.pressed) {
-            return MACRODOWN( DOWN(KC_LCTL), TYPE(KC_A), UP(KC_LCTL), TYPE(KC_1), END );
+            return MACRODOWN( DOWN(KC_LCTL), TYPE(KC_A), UP(KC_LCTL), TYPE(KC_Q), TYPE(KC_1), END );
           }
           break;
-        case TMUX_WD2: // Macro M()
+        case TMUX_PN2: // Macro M()
           if (record->event.pressed) {
-            return MACRODOWN( DOWN(KC_LCTL), TYPE(KC_A), UP(KC_LCTL), TYPE(KC_2), END );
+            return MACRODOWN( DOWN(KC_LCTL), TYPE(KC_A), UP(KC_LCTL), TYPE(KC_Q), TYPE(KC_2), END );
           }
           break;
-        case TMUX_WD3: // Macro M()
+        case TMUX_PN3: // Macro M()
           if (record->event.pressed) {
-            return MACRODOWN( DOWN(KC_LCTL), TYPE(KC_A), UP(KC_LCTL), TYPE(KC_3), END );
-          }
-          break;
-        case TMUX_WD4: // Macro M()
-          if (record->event.pressed) {
-            return MACRODOWN( DOWN(KC_LCTL), TYPE(KC_A), UP(KC_LCTL), TYPE(KC_4), END );
-          }
-          break;
-        case TMUX_WD5: // Macro M()
-          if (record->event.pressed) {
-            return MACRODOWN( DOWN(KC_LCTL), TYPE(KC_A), UP(KC_LCTL), TYPE(KC_5), END );
-          }
-          break;
-        case PARENS: // Macro M()
-          if (record->event.pressed) {
-            return MACRODOWN( DOWN(KC_LSFT), TYPE(KC_9), TYPE(KC_0), UP(KC_LSFT), TYPE(KC_LEFT), END );
+            return MACRODOWN( DOWN(KC_LCTL), TYPE(KC_A), UP(KC_LCTL), TYPE(KC_Q), TYPE(KC_3), END );
           }
           break;
       }

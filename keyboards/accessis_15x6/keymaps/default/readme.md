@@ -1,0 +1,1 @@
+# The default keymap for accessis_15x6

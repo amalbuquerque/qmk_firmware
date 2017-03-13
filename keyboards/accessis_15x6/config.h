@@ -24,13 +24,42 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define VENDOR_ID       0xFEED
 #define PRODUCT_ID      0x6060
 #define DEVICE_VER      0x0001
-#define MANUFACTURER    You
+#define MANUFACTURER    Lejboua
 #define PRODUCT         accessis_15x6
-#define DESCRIPTION     A custom keyboard
+#define DESCRIPTION     Lejboua Access-IS 15x6 keyboard
+
+// Rows are the keyboard matrix diagonals
+// Access-Is Pin -> Teensy Pin
+// P12  PB0
+// P13  PB1
+// P14  PB2
+// P15  PB3
+// P16  PB7
+// P19  PD0
+// P20  PD1
+// P21  PD2
+// P22  PD3
+// 9 Rows
+
+// Columns are the diodes lines
+// Access-Is Pin -> Teensy Pin
+// P6   PC6
+// P7   PC7
+// P8   PF0
+// P9   PF1
+// P10  PF4
+// P11  PF5
+// P23  PF6
+// P24  PF7
+// P25  PB6
+// P26  PB5
+// P27  PB4
+// P28  PD7
+// 12 Columns
 
 /* key matrix size */
-#define MATRIX_ROWS 2
-#define MATRIX_COLS 3
+#define MATRIX_ROWS 9
+#define MATRIX_COLS 12
 
 /*
  * Keyboard Matrix Assignments
@@ -42,8 +71,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *                  ROW2COL = ROW = Anode (+), COL = Cathode (-, marked on diode)
  *
 */
-#define MATRIX_ROW_PINS { D0, D5 }
-#define MATRIX_COL_PINS { F1, F0, B0 }
+#define MATRIX_ROW_PINS { B0, B1, B2, B3, B7, D0, D1, D2, D3 }
+#define MATRIX_COL_PINS { C6, C7, F0, F1, F4, F5, F6, F7, B6, B5, B4, D7 }
 #define UNUSED_PINS
 
 /* COL2ROW, ROW2COL, or CUSTOM_MATRIX */

@@ -51,6 +51,18 @@ Vagrant.configure(2) do |config|
         	  '--vendorid', '0xFEED',
         	  '--productid','0x6060'
     		 ]
+    vb.customize ['usbfilter', 'add', '3',
+        	  '--target', :id,
+        	  '--name', 'promicro',
+        	  '--vendorid', '0x16C0',
+        	  '--productid','0x0487'
+    		 ]
+    vb.customize ['usbfilter', 'add', '4',
+        	  '--target', :id,
+        	  '--name', 'promicro',
+        	  '--vendorid', '0x16C0',
+        	  '--productid','0x0478'
+    		 ]
     # Customize the amount of memory on the VM:
     vb.memory = "512"
   end
@@ -90,6 +102,31 @@ Vagrant.configure(2) do |config|
 # Manufacturer:       Lejboua
 # Product:            macropad_2x5
 # Address:            {36fc9e60-c465-11cf-8056-444553540000}\0010
+# Current State:      Busy
+  #
+  # Normal Teensy (without Reset)
+# UUID:               0497a188-f560-4c02-8d30-7c52e5255dae
+# VendorId:           0x16c0 (16C0)
+# ProductId:          0x0487 (0487)
+# Revision:           1.2 (0102)
+# Port:               0
+# USB version/speed:  2/High
+# Manufacturer:       Teensyduino
+# Product:            Serial+Keyboard+Mouse+Joystick
+# SerialNumber:       12345
+# Address:            {36fc9e60-c465-11cf-8056-444553540000}\0014
+# Current State:      Busy
+#
+  # Teensy inside bootloader (after pressing reset)
+# UUID:               7bae14c2-3427-4d56-9124-9b0a5c5d6cf2
+# VendorId:           0x16c0 (16C0)
+# ProductId:          0x0478 (0478)
+# Revision:           1.32 (0132)
+# Port:               0
+# USB version/speed:  1/Full
+# Manufacturer:       Van Ooijen Technische Informatica
+# Product:            Teensy Halfkay Bootloader
+# Address:            {745a17a0-74d3-11d0-b6fe-00a0c90f57da}\0016
 # Current State:      Busy
 
   # This section allows you to customize the VMware VM

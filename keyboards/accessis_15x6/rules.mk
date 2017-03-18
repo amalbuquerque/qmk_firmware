@@ -45,8 +45,10 @@ OPT_DEFS += -DINTERRUPT_CONTROL_ENDPOINT
 #   Atmel DFU loader 4096
 #   LUFA bootloader  4096
 #   USBaspLoader     2048
-OPT_DEFS += -DBOOTLOADER_SIZE=4096
-
+# We're using Teensy 2.0, so it uses the halfkay bootloader
+# This is what we see after pressing the reset button on the Teensy:
+# Bus 001 Device 003: ID 16c0:0478 Van Ooijen Technische Informatica Teensy Halfkay Bootloader
+OPT_DEFS += -DBOOTLOADER_SIZE=512
 
 # Build Options
 #   change yes to no to disable

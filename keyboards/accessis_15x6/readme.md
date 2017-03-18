@@ -1,6 +1,32 @@
 accessis_15x6 keyboard firmware
 ======================
 
+## Lejboua NOTES!
+
+Copy first the 49-teensy.rules file to /etc/udev/rules.d/ and/or /lib/udev/rules.d, chmod 666 and then restart udev:
+
+vagrant@ubuntu-14:/vagrant$ sudo cp 49-teensy.rules /etc/udev/rules.d/
+vagrant@ubuntu-14:/vagrant$ sudo chmod 666 /etc/udev/rules.d/49-teensy.rules
+vagrant@ubuntu-14:/vagrant$ sudo service udev restart
+udev stop/waiting
+udev start/running, process 1469
+
+Then, cloned the teensy_loader_cli and compiled it:
+cd ~
+git clone https://github.com/PaulStoffregen/teensy_loader_cli
+cd teensy_loader_cli
+make
+
+Then:
+vagrant@ubuntu-14:~/teensy_loader_cli$ cd ~/teensy_loader_cli
+# Still w/ the Teensy in "normal" mode, with -w flag, it will wait for the Teensy bootloader to appear
+vagrant@ubuntu-14:~/teensy_loader_cli$ ./teensy_loader_cli --mcu=atmega32u4 -w /vagrant/accessis_15x6_default.hex
+# Press the Teensy reset button
+# And it ends. To check if it went well, lsusb should now show the VendorId:ProductId defined in my Firmware
+vagrant@ubuntu-14:~/teensy_loader_cli$ lsusb
+Bus 001 Device 006: ID feed:6060
+Bus 001 Device 001: ID 1d6b:0001 Linux Foundation 1.1 root hub
+
 ## Quantum MK Firmware
 
 For the full Quantum feature list, see [the parent readme](/).

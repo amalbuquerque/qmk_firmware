@@ -22,8 +22,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 /* USB Device descriptor parameter */
 #define VENDOR_ID       0xFEED
-#define PRODUCT_ID      0x6060
-#define DEVICE_VER      0x0001
+#define PRODUCT_ID      0xC0FF
+#define DEVICE_VER      0x0002
 #define MANUFACTURER    Lejboua
 #define PRODUCT         accessis_15x6
 #define DESCRIPTION     Lejboua Access-IS 15x6 keyboard
@@ -76,7 +76,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define UNUSED_PINS
 
 /* COL2ROW, ROW2COL, or CUSTOM_MATRIX */
-#define DIODE_DIRECTION COL2ROW
+// 2017/03/18 18:42:58, AA: Didn't work
+/* #define DIODE_DIRECTION COL2ROW */
+#define DIODE_DIRECTION ROW2COL
  
 // #define BACKLIGHT_PIN B7
 // #define BACKLIGHT_BREATHING

@@ -1,0 +1,43 @@
+Hi,
+
+Sorry for the delay. My main problem building the Infinity firmware was that I wanted to build it using jackumbert's QMK firmware, since my Planck uses QMK firmware already and I like how the macros, makefile, etc. are set.
+
+Building the QMK firmware for the Planck was a breeze (I've used the Vagrantfile jack provided to setup a minimal Arch setup). However, when I've tried to build the Infinity firmware from the QMK repository, it didn't work. From what I remember, the problem I was having was related to specific versions of the arm-none-eabi-gcc I was using and afterwards it was complaining about the gcc version.
+
+After a few tries (including compiling a specific version of gcc :/ ), I gave up and returned to a clean slate.
+
+The instructions I've created at the time were:
+- Follow github.com/lejboua/qmk_firmware\keyboard\infinity_chibios\MEMO.txt (you will clone flabbergast repo using chibios (Note: use the chibios branch))
+- To use some advanced features found on jackhumbert qmk_firmware like MACRODOWN and such, I updated the following files on the repo I cloned from flabbergast:
+
+On branch chibios
+Your branch is up-to-date with 'origin/chibios'.
+
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        modified:   .gitmodules
+        new file:   tmk_core/tool/chibios/chibios
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   keyboard/infinity_chibios/Makefile
+        modified:   keyboard/infinity_chibios/config.h
+        modified:   keyboard/infinity_chibios/keymap_common.h
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        keyboard/infinity_chibios/keymap_lejboua.c
+
+To upload the firmware to the infinity, I've used both Windows (following the kiibohd reccomendations, using the kii-dfu) as well as the dfu-util on Linux (if you're using Vagrant, you should first find the Product ID and Vendor ID *when* you put the keyboard in bootloader mode  (after pressing the button on the PCB)).
+
+Here you have the files I've changed: https://www.dropbox.com/s/inb6sl1bmextwda/flabbergast-modified-files.zip?dl=0
+
+If you need anything, please send me a message here (or andre.malbuq@gmail.com)
+
+Sorry for the late reply.
+
+Cheers

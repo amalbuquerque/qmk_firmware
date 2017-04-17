@@ -29,8 +29,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // F6 , F8 , F10 , F12 , HOT_SWAP
     // F5 , F7 , F9  , F11 , Cancel
     [_DEFAULT] = KEYMAP( /* Base */
-      M(CUT),    M(PASTE), M(TMUX_ZOM), M(TMUX_PVR), FUNC(0), \
-      M(ALTTAB), M(COPY),  KC_MS_BTN3,  KC_MS_BTN2,  KC_MS_BTN1
+      M(CUT),    M(PASTE), KC_LCTL, KC_LSFT, FUNC(0), \
+      M(ALTTAB), M(COPY),  KC_BTN3, KC_BTN2, KC_BTN1
     ),
     [_WINDOW_MGMT] = KEYMAP( /* Numbers */
       M(TMUX_PN1), M(TMUX_PN3), M(WIN_RGT), M(WIN_UP), KC_TRNS, \

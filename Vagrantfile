@@ -32,37 +32,37 @@ Vagrant.configure(2) do |config|
     vb.gui = false
     # Uncomment the below lines if you want to program
     # your Teensy via the VM rather than your host OS
-    vb.customize ['modifyvm', :id, '--usb', 'on']
-    vb.customize ['usbfilter', 'add', '0',
-        	  '--target', :id,
-        	  '--name', 'promicro',
-        	  '--vendorid', '0x2341',
-        	  '--productid','0x0036'
-    		 ]
-    vb.customize ['usbfilter', 'add', '1',
-        	  '--target', :id,
-        	  '--name', 'promicro',
-        	  '--vendorid', '0x2341',
-        	  '--productid','0x8036'
-    		 ]
-    vb.customize ['usbfilter', 'add', '2',
-        	  '--target', :id,
-        	  '--name', 'promicro',
-        	  '--vendorid', '0xFEED',
-        	  '--productid','0x6060'
-    		 ]
-    vb.customize ['usbfilter', 'add', '3',
-        	  '--target', :id,
-        	  '--name', 'promicro',
-        	  '--vendorid', '0x16C0',
-        	  '--productid','0x0487'
-    		 ]
-    vb.customize ['usbfilter', 'add', '4',
-        	  '--target', :id,
-        	  '--name', 'promicro',
-        	  '--vendorid', '0x16C0',
-        	  '--productid','0x0478'
-    		 ]
+    # vb.customize ['modifyvm', :id, '--usb', 'on']
+    # vb.customize ['usbfilter', 'add', '0',
+    #     	  '--target', :id,
+    #     	  '--name', 'promicro',
+    #     	  '--vendorid', '0x2341',
+    #     	  '--productid','0x0036'
+    # 		 ]
+    # vb.customize ['usbfilter', 'add', '1',
+    #     	  '--target', :id,
+    #     	  '--name', 'promicro',
+    #     	  '--vendorid', '0x2341',
+    #     	  '--productid','0x8036'
+    # 		 ]
+    # vb.customize ['usbfilter', 'add', '2',
+    #     	  '--target', :id,
+    #     	  '--name', 'promicro',
+    #     	  '--vendorid', '0xFEED',
+    #     	  '--productid','0x6060'
+    # 		 ]
+    # vb.customize ['usbfilter', 'add', '3',
+    #     	  '--target', :id,
+    #     	  '--name', 'promicro',
+    #     	  '--vendorid', '0x16C0',
+    #     	  '--productid','0x0487'
+    # 		 ]
+    # vb.customize ['usbfilter', 'add', '4',
+    #     	  '--target', :id,
+    #     	  '--name', 'promicro',
+    #     	  '--vendorid', '0x16C0',
+    #     	  '--productid','0x0478'
+    # 		 ]
     # Customize the amount of memory on the VM:
     vb.memory = "512"
   end

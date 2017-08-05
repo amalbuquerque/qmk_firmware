@@ -51,3 +51,4 @@ util/Win_Check_Output.txt
 # things travis sees
 secrets.tar
 id_rsa_*
+tmk_keyboard/

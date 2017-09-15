@@ -48,6 +48,8 @@ util/Win_Check_Output.txt
 # Do not ignore MiniDox left/right hand eeprom files
 !keyboards/minidox/*.eep 
 
+*.hex
+
 # things travis sees
 secrets.tar
 id_rsa_*

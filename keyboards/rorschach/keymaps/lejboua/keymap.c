@@ -40,11 +40,11 @@ enum macro_id {
     PARENS,
     CRLY_PARENS,
     SQUR_PARENS,
-    TMUX_WIN0,
     TMUX_WIN1,
     TMUX_WIN2,
     TMUX_WIN3,
     TMUX_WIN4,
+    TMUX_WIN5,
     TMUX_ZOOM,
     TMUX_LWIN,
     TMUX_RWIN,
@@ -186,11 +186,6 @@ const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt)
                 return MACRODOWN( TYPE(KC_LBRC), TYPE(KC_RBRC), TYPE(KC_LEFT), END );
             }
             break;
-        case TMUX_WIN0: // Macro Tmux Win0
-            if (record->event.pressed) {
-                return MACRODOWN( DOWN(KC_LCTL), TYPE(KC_A), UP(KC_LCTL), TYPE(KC_0), END );
-            }
-            break;
         case TMUX_WIN1: // Macro Tmux Win1
             if (record->event.pressed) {
                 return MACRODOWN( DOWN(KC_LCTL), TYPE(KC_A), UP(KC_LCTL), TYPE(KC_1), END );
@@ -209,6 +204,11 @@ const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt)
         case TMUX_WIN4: // Macro Tmux Win4
             if (record->event.pressed) {
                 return MACRODOWN( DOWN(KC_LCTL), TYPE(KC_A), UP(KC_LCTL), TYPE(KC_4), END );
+            }
+            break;
+        case TMUX_WIN5: // Macro Tmux Win5
+            if (record->event.pressed) {
+                return MACRODOWN( DOWN(KC_LCTL), TYPE(KC_A), UP(KC_LCTL), TYPE(KC_5), END );
             }
             break;
         case TMUX_ZOOM: // Macro Tmux Zoom toggle

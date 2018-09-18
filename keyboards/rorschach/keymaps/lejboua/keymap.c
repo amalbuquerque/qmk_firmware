@@ -26,10 +26,10 @@ enum rorschach_keycodes {
   CTL_BSP = CTL_T(KC_BSPC),
   TMX_KEY = LCTL(KC_A),
   // tap toggle
-  TTO_NUM = ACTION_LAYER_TAP_TOGGLE(_NUMBERS_LAYER),
-  TTO_FN1 = ACTION_LAYER_TAP_TOGGLE(_F1_LAYER),
-  TTO_FN5 = ACTION_LAYER_TAP_TOGGLE(_F5_LAYER),
-  TTO_TMX = ACTION_LAYER_TAP_TOGGLE(_TMUX_LAYER),
+  TTO_NUM = TT(_NUMBERS_LAYER),
+  TTO_FN1 = TT(_F1_LAYER),
+  TTO_FN5 = TT(_F5_LAYER),
+  TTO_TMX = TT(_TMUX_LAYER),
   NKROTG = MAGIC_TOGGLE_NKRO,
 };
 
@@ -67,7 +67,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_TAB,  KC_Q,   KC_W,    KC_E,    KC_R,    KC_T,                       KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSLS,
   CTL_ESC, KC_A,   KC_S,    KC_D,    KC_F,    KC_G,                       KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT,
   KC_LSPO, KC_Z,   KC_X,    KC_C,    KC_V,    KC_B,                       KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSPC,
-  KC_INS,  KC_GRV, KC_LBRC, KC_RBRC, KC_LALT, KC_SPC,                     KC_BSPC, KC_RGUI, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT,
+  KC_INS,  KC_GRV, KC_LBRC, KC_RBRC, KC_LALT, KC_SPC,                     KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, APP_FN4, KC_RGUI,
                                               KC_ENT, KC_BSPC,    KC_ENT, KC_DELETE
 ),
 

@@ -299,3 +299,55 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   }
   return true;
 };
+
+
+// Light LEDs 2 to 5 when f1 is active
+const rgblight_segment_t PROGMEM my_f1_layer[] = RGBLIGHT_LAYER_SEGMENTS(
+    {2, 4, HSV_RED}       // Light 4 LEDs, starting with LED 2
+);
+// Light LEDs 3 & 4 in cyan when f2 is active
+const rgblight_segment_t PROGMEM my_f2_layer[] = RGBLIGHT_LAYER_SEGMENTS(
+    {3, 2, HSV_CYAN}
+);
+// Light LEDs 4 & 5 in purple when layer numbers is active
+const rgblight_segment_t PROGMEM my_numbers_layer[] = RGBLIGHT_LAYER_SEGMENTS(
+    {4, 2, HSV_PURPLE}
+);
+// Light LEDs 5 & 6 in green when f4 is active
+const rgblight_segment_t PROGMEM my_f4_layer[] = RGBLIGHT_LAYER_SEGMENTS(
+    {5, 2, HSV_GREEN}
+);
+
+// Light LEDs 6 & 7 in green when layer tmux is active
+const rgblight_segment_t PROGMEM my_tmux_layer[] = RGBLIGHT_LAYER_SEGMENTS(
+    {6, 2, HSV_YELLOW}
+);
+
+const rgblight_segment_t* const PROGMEM my_rgb_layers[] = RGBLIGHT_LAYERS_LIST(
+    my_f1_layer,
+    my_f2_layer,
+    my_numbers_layer,
+    my_f4_layer,
+    my_tmux_layer
+);
+
+void keyboard_post_init_user(void) {
+    // Enable the LED layers
+    rgblight_layers = my_rgb_layers;
+}
+
+// I think I don't need the default setting, since it's set on the
+// config.h of the rev5 file (RGBLIGHT_DEFAULT_MODE)
+// layer_state_t default_layer_state_set_user(layer_state_t state) {
+//     rgblight_set_layer_state(1, layer_state_cmp(state, _DVORAK));
+//     return state;
+// }
+
+layer_state_t layer_state_set_user(layer_state_t state) {
+    rgblight_set_layer_state(0, layer_state_cmp(state, _F1_LAYER));
+    rgblight_set_layer_state(1, layer_state_cmp(state, _F2_LAYER));
+    rgblight_set_layer_state(2, layer_state_cmp(state, _NUMBERS_LAYER));
+    rgblight_set_layer_state(3, layer_state_cmp(state, _F4_LAYER));
+    rgblight_set_layer_state(4, layer_state_cmp(state, _TMUX_LAYER));
+    return state;
+}

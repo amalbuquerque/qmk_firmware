@@ -21,7 +21,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define EE_HANDS
 
 #undef RGBLED_NUM
-#define RGBLIGHT_ANIMATIONS
 #define RGBLED_NUM 12
 #define RGBLIGHT_HUE_STEP 2
 #define RGBLIGHT_SAT_STEP 8
@@ -29,15 +28,17 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #define RGBLIGHT_LAYERS
 
-#undef RGBLIGHT_EFFECT_CHRISTMAS
-#undef RGBLIGHT_EFFECT_STATIC_GRADIENT
-#undef RGBLIGHT_EFFECT_RGB_TEST
+#undef RGBLIGHT_ANIMATIONS
 #undef RGBLIGHT_EFFECT_ALTERNATING
+#undef RGBLIGHT_EFFECT_CHRISTMAS
+#undef RGBLIGHT_EFFECT_RGB_TEST
+#undef RGBLIGHT_EFFECT_SNAKE
+#undef RGBLIGHT_EFFECT_STATIC_GRADIENT
 #undef RGBLIGHT_EFFECT_TWINKLE
 
 #ifndef NO_DEBUG
 #    define NO_DEBUG
 #endif  // !NO_DEBUG
-#if !defined(NO_PRINT) && !defined(CONSOLE_ENABLE)
+#ifndef NO_PRINT
 #    define NO_PRINT
 #endif  // !NO_PRINT

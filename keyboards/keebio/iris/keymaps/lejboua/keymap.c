@@ -7,7 +7,6 @@ enum iris_layers {
   _F2_LAYER,      // Symbols II
   _NUMBERS_LAYER, // Numbers
   _F4_LAYER,      // Multimedia
-  _TMUX_LAYER     // Tmux FTW
 };
 
 enum iris_keycodes {
@@ -25,7 +24,6 @@ enum iris_keycodes {
   // tap toggle
   TTO_NUM = TT(_NUMBERS_LAYER),
   TTO_FN1 = TT(_F1_LAYER),
-  TTO_TMX = TT(_TMUX_LAYER),
   NKROTG = MAGIC_TOGGLE_NKRO,
 
   // Macros
@@ -132,21 +130,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //└────────┴────────┴─────────┴───┬───────┴───┬───────┴───┬─────┴───┬────┘        └───┬────┴───┬─────┴──────┬───┴─────┬─────┴───────────┴──────────┴────────┘
                                       ______,     ______,    ______,                     ______,   ______,     ______
                                 //  └───────────┴───────────┴─────────┘                 └────────┴───────────┴─────────┘
-  ),
-
-[_TMUX_LAYER] = LAYOUT(
-  //┌────────┬────────┬─────────┬───────────┬──────────┬────────────┐                          ┌────────┬──────────┬───────────┬───────────┬──────────┬────────┐
-     ______,  ______,   ______,   ______,      ______,   ______,                                 ______,  ______,    ______,      ______,    ______,    ______,
-  //├────────┼────────┼─────────┼───────────┼──────────┼────────────┤                          ├────────┼──────────┼───────────┼───────────┼──────────┼────────┤
-     ______,  TMUX_WIN1,  TMUX_WIN2,  TMUX_WIN3,       TMUX_WIN4,  TMUX_WIN5,                                   TMUX_ZOOM,  TMUX_LWIN,  TMUX_RWIN,  TMUX_HSPL,  TMUX_VSPL,     ______,
-  //├────────┼────────┼─────────┼───────────┼──────────┼────────────┤                          ├────────┼──────────┼───────────┼───────────┼──────────┼────────┤
-     ______,  ______,   ______,   ______,     ______,    ______,                                 ______,  ______,    ______,     ______,     ______,    ______,
-  //├────────┼────────┼─────────┼───────────┼──────────┼────────────┼────────┐        ┌────────┼────────┼──────────┼───────────┼───────────┼──────────┼────────┤
-     ______,  ______,   ______,   ______,     ______,    ______,     ______,            ______,  ______,  ______,    ______,     ______,     ______,    ______,
-  //└────────┴────────┴─────────┴───┬───────┴───┬──────┴───┬────────┴───┬────┘        └───┬────┴───┬────┴──────┬───┴─────┬─────┴───────────┴──────────┴────────┘
-                                      ______,      ______,     ______,                      ______,   ______,     ______
-                                //  └───────────┴──────────┴────────────┘                 └────────┴───────────┴─────────┘
   )
+
 };
 
 
@@ -206,7 +191,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         layer_off(_F2_LAYER);
         layer_off(_NUMBERS_LAYER);
         layer_off(_F4_LAYER);
-        layer_off(_TMUX_LAYER);
       }
       return false;
       break;
@@ -218,7 +202,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         layer_off(_F2_LAYER);
         layer_off(_NUMBERS_LAYER);
         layer_off(_F4_LAYER);
-        layer_off(_TMUX_LAYER);
       }
       return false;
       break;
@@ -340,6 +323,5 @@ layer_state_t layer_state_set_user(layer_state_t state) {
     rgblight_set_layer_state(1, layer_state_cmp(state, _F2_LAYER));
     rgblight_set_layer_state(2, layer_state_cmp(state, _NUMBERS_LAYER));
     rgblight_set_layer_state(3, layer_state_cmp(state, _F4_LAYER));
-    rgblight_set_layer_state(4, layer_state_cmp(state, _TMUX_LAYER));
     return state;
 }

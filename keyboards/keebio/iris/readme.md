@@ -19,6 +19,12 @@ See [build environment setup](https://docs.qmk.fm/#/newbs_getting_started) then 
 
 A build guide for this keyboard can be found here: [Iris Build Guide](https://docs.keeb.io/iris-rev6-build-guide)
 
+## Build with QMK CLI tool
+
+1. Tweak your keymap
+2. Build it with: `make keebio/iris/rev5:lejboua`
+3. Upload the firmware with `qmk flash -kb keebio/iris/rev5 -km lejboua`
+
 ## Iris Rev. 6 Notes
 
 The Iris Rev. 6 and Rev. 6.1 PCBs are nearly identical and have the same firmware (`rev6`) pre-flashed to them that has VIA support enabled. However this stock firmware does not support for Lighting controls in VIA.

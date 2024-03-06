@@ -2,7 +2,6 @@
 
 enum iris_layers {
   _QWERTY,        // Qwerty (default layer)
-  _BASIC,         // Basic qwerty
   _F1_LAYER,      // Symbols
   _F2_LAYER,      // Symbols II
   _NUMBERS_LAYER, // Numbers
@@ -11,7 +10,6 @@ enum iris_layers {
 
 enum iris_keycodes {
   QWERTY = SAFE_RANGE,
-  BASIC,
   SPC_FN1 = LT(_F1_LAYER, KC_SPC),
   ENT_FN2 = LT(_F2_LAYER, KC_ENT),
   APP_FN4 = LT(_F4_LAYER, KC_APP),
@@ -61,21 +59,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                 // └────────┴────────┴────────┘                 └────────┴────────┴────────┘
   ),
 
-/* BASIC */
-[_BASIC] = LAYOUT(
-  //┌────────┬────────┬────────┬────────┬────────┬────────┐                          ┌────────┬────────┬────────┬──────────┬────────┬────────┐
-     KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                               KC_Y,    KC_U,    KC_I,    KC_O,      KC_P,    KC_BSLS,
-  //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼──────────┼────────┼────────┤
-     CTL_ESC, KC_A,    KC_S,    KC_D,    KC_F,    KC_G,                               KC_H,    KC_J,    KC_K,    KC_L,      KC_SCLN, KC_QUOT,
-  //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼──────────┼────────┼────────┤
-     KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                               KC_N,    KC_M,    KC_COMM, KC_DOT,    KC_SLSH, KC_RSFT,
-  //├────────┼────────┼────────┼────────┼────────┼────────┼────────┐        ┌────────┼────────┼────────┼────────┼──────────┼────────┼────────┤
-     KC_INS,  KC_GRV,  KC_LBRC, KC_RBRC, KC_LALT, KC_SPC,  KC_HOME,          KC_END,  KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT,   APP_FN4, KC_RGUI,
-  //└────────┴────────┴────────┴───┬────┴───┬────┴───┬────┴───┬────┘        └───┬────┴───┬────┴─────┬──┴─────┬──┴──────────┴────────┴────────┘
-                                    KC_ENT,  KC_SPC,  KC_BSPC,                   KC_LGUI, KC_DELETE, KC_ENT
-                                // └────────┴────────┴────────┘                 └────────┴──────────┴────────┘
-  ),
-
 [_F1_LAYER] = LAYOUT(
   //┌────────┬────────┬────────┬────────┬────────┬─────────┐                          ┌────────┬──────────┬────────┬──────────┬────────┬────────┐
      KC_TAB,  ______,  ______,  ______,  ______,  KC_GRV,                              ______,  KC_HOME,   ______,  KC_MINS,   KC_EQL,  KC_GRV,
@@ -94,9 +77,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //┌────────┬────────┬────────┬───────────┬───────────┬─────────┐                          ┌────────┬──────────┬───────────┬───────────┬──────────┬────────┐
      ______,  S(KC_1), S(KC_2), S(KC_3),    S(KC_4),    S(KC_5),                             S(KC_6), S(KC_7),   S(KC_8),    S(KC_9),    S(KC_0),   ______,
   //├────────┼────────┼────────┼───────────┼───────────┼─────────┤                          ├────────┼──────────┼───────────┼───────────┼──────────┼────────┤
-     ______,  S(KC_9), S(KC_0), S(KC_LBRC), S(KC_RBRC), PARENS,                                CRLY_PARENS,    KC_QUOT,   S(KC_QUOT), S(KC_MINS), S(KC_EQL), ______,
+     ______,  S(KC_9), S(KC_0), S(KC_LBRC), S(KC_RBRC), PARENS,                              CRLY_PARENS,KC_QUOT,S(KC_QUOT), S(KC_MINS), S(KC_EQL), ______,
   //├────────┼────────┼────────┼───────────┼───────────┼─────────┤                          ├────────┼──────────┼───────────┼───────────┼──────────┼────────┤
-     ______,  KC_LBRC, KC_RBRC, ______,     ______,     SQUR_PARENS,                                ______,  ______,    ______,     ______,     ______,    ______,
+     ______,  KC_LBRC, KC_RBRC, ______,     ______,     SQUR_PARENS,                         ______,  ______,    ______,     ______,     ______,    ______,
   //├────────┼────────┼────────┼───────────┼───────────┼─────────┼────────┐        ┌────────┼────────┼──────────┼───────────┼───────────┼──────────┼────────┤
      ______,  ______,  ______,  ______,     ______,     ______,   ______,           ______,  ______,  ______,    ______,     ______,     ______,    ______,
   //└────────┴────────┴────────┴───┬───────┴───┬───────┴───┬─────┴───┬────┘        └───┬────┴───┬────┴──────┬───┴─────┬─────┴───────────┴──────────┴────────┘
@@ -120,7 +103,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 [_F4_LAYER] = LAYOUT(
   //┌────────┬────────┬─────────┬───────────┬───────────┬─────────┐                          ┌─────────┬──────────┬───────────┬───────────┬──────────┬────────┐
-     KC_PWR,  ______,   QWERTY,  BASIC,       ______,     NKROTG,                              ______,  KC_PSCR,   KC_SCRL,     KC_PAUS,   QK_REBOOT, ______,
+     KC_PWR,  ______,   QWERTY,   EE_CLR,     ______,     NKROTG,                              ______,  KC_PSCR,   KC_SCRL,     KC_PAUS,   QK_REBOOT, ______,
   //├────────┼────────┼─────────┼───────────┼───────────┼─────────┤                          ├─────────┼──────────┼───────────┼───────────┼──────────┼────────┤
      KC_SLEP, ______,   KC_MPRV,  KC_MNXT,    ______,     ______,                              ______,   ______,    ______,     ______,     ______,   ______,
   //├────────┼────────┼─────────┼───────────┼───────────┼─────────┤                          ├─────────┼──────────┼───────────┼───────────┼──────────┼────────┤
@@ -186,18 +169,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     case QWERTY:
       if (record->event.pressed) {
         persistent_default_layer_set(1UL << _QWERTY);
-        layer_off(_BASIC);
-        layer_off(_F1_LAYER);
-        layer_off(_F2_LAYER);
-        layer_off(_NUMBERS_LAYER);
-        layer_off(_F4_LAYER);
-      }
-      return false;
-      break;
-    case BASIC:
-      if (record->event.pressed) {
-        persistent_default_layer_set(1UL << _BASIC);
-        layer_off(_QWERTY);
         layer_off(_F1_LAYER);
         layer_off(_F2_LAYER);
         layer_off(_NUMBERS_LAYER);
@@ -210,66 +181,79 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       if (record->event.pressed) {
           SEND_STRING(SS_LSFT("9") SS_LSFT("0") SS_TAP(X_LEFT));
       }
+      return false;
       break;
     case CRLY_PARENS: // Macro {\n\n}
       if (record->event.pressed) {
           SEND_STRING(SS_LSFT("[") SS_LSFT("]") SS_TAP(X_LEFT) SS_TAP(X_ENT) SS_TAP(X_ENT) SS_TAP(X_UP));
       }
+      return false;
       break;
     case SQUR_PARENS: // Macro []
       if (record->event.pressed) {
           SEND_STRING("[]" SS_TAP(X_LEFT));
       }
+      return false;
       break;
     case TMUX_WIN1: // Macro Tmux Win1
       if (record->event.pressed) {
           SEND_STRING(SS_LCTL("a") "1");
       }
+      return false;
       break;
     case TMUX_WIN2: // Macro Tmux Win2
       if (record->event.pressed) {
           SEND_STRING(SS_LCTL("a") "2");
       }
+      return false;
       break;
     case TMUX_WIN3: // Macro Tmux Win3
       if (record->event.pressed) {
           SEND_STRING(SS_LCTL("a") "3");
       }
+      return false;
       break;
     case TMUX_WIN4: // Macro Tmux Win4
       if (record->event.pressed) {
           SEND_STRING(SS_LCTL("a") "4");
       }
+      return false;
       break;
     case TMUX_WIN5: // Macro Tmux Win5
       if (record->event.pressed) {
           SEND_STRING(SS_LCTL("a") "5");
       }
+      return false;
       break;
     case TMUX_ZOOM: // Macro Tmux Zoom toggle
       if (record->event.pressed) {
           SEND_STRING(SS_LCTL("a") "z");
       }
+      return false;
       break;
     case TMUX_LWIN: // Macro Tmux Left Window
       if (record->event.pressed) {
           SEND_STRING(SS_LCTL("a") SS_LCTL("h"));
       }
+      return false;
       break;
     case TMUX_RWIN: // Macro Tmux Right Window
       if (record->event.pressed) {
           SEND_STRING(SS_LCTL("a") SS_LCTL("l"));
       }
+      return false;
       break;
     case TMUX_HSPL: // Macro Tmux Horizontal Split
       if (record->event.pressed) {
           SEND_STRING(SS_LCTL("a") SS_LSFT("'"));
       }
+      return false;
       break;
     case TMUX_VSPL: // Macro Tmux Vertical Split
       if (record->event.pressed) {
           SEND_STRING(SS_LCTL("a") "/");
       }
+      return false;
       break;
   }
   return true;

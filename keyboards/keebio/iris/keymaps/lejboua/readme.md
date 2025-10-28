@@ -15,3 +15,11 @@ To flash the firmware:
 $ cd qmk_firmware
 $ make keebio/iris/rev5:lejboua:flash
 ```
+
+Using `qmk` tool, to compile and flash:
+
+```
+qmk compile -kb keebio/iris/rev5 -km lejboua
+
+qmk flash -kb keebio/iris/rev5 -km lejboua
+```

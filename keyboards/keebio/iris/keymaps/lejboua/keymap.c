@@ -28,16 +28,7 @@ enum iris_keycodes {
   PARENS,
   CRLY_PARENS,
   SQUR_PARENS,
-  TMUX_WIN1,
-  TMUX_WIN2,
-  TMUX_WIN3,
-  TMUX_WIN4,
-  TMUX_WIN5,
-  TMUX_ZOOM,
-  TMUX_LWIN,
-  TMUX_RWIN,
-  TMUX_HSPL,
-  TMUX_VSPL
+  DEV_PASSWORD
 };
 
 #define ______ KC_TRNS
@@ -105,7 +96,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //┌───────────┬──────────┬─────────┬───────────┬───────────┬─────────┐                          ┌─────────┬──────────┬───────────┬───────────┬──────────┬────────┐
      KC_PWR,     ______,    G(KC_1),  G(KC_2),    G(KC_3),    G(KC_4),                              EE_CLR,  KC_PSCR,   KC_SCRL,     KC_PAUS,   QK_REBOOT, ______,
   //├───────────┼──────────┼─────────┼───────────┼───────────┼─────────┤                          ├─────────┼──────────┼───────────┼───────────┼──────────┼────────┤
-     KC_SLEP,    ______,    KC_MPRV,  KC_MNXT,    ______,     ______,                               NKROTG,   ______,    ______,     ______,     QWERTY,   ______,
+     KC_SLEP,    ______,    KC_MPRV,  KC_MNXT,    ______,     DEV_PASSWORD,                         NKROTG,   ______,    ______,     ______,     QWERTY,   ______,
   //├───────────┼──────────┼─────────┼───────────┼───────────┼─────────┤                          ├─────────┼──────────┼───────────┼───────────┼──────────┼────────┤
      ______,     KC_VOLU,   KC_VOLD,  KC_MUTE,    KC_MPLY,    ______,                              RGB_M_P,  RGB_M_B,   RGB_M_R,    RGB_M_K,    RGB_M_SW,  ______,
   //├───────────┼──────────┼─────────┼───────────┼───────────┼─────────┼────────┐        ┌────────┼─────────┼──────────┼───────────┼───────────┼──────────┼────────┤
@@ -196,63 +187,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       }
       return false;
       break;
-    case TMUX_WIN1: // Macro Tmux Win1
+    case DEV_PASSWORD: // Macro 123456789000Aa
       if (record->event.pressed) {
-          SEND_STRING(SS_LCTL("a") "1");
-      }
-      return false;
-      break;
-    case TMUX_WIN2: // Macro Tmux Win2
-      if (record->event.pressed) {
-          SEND_STRING(SS_LCTL("a") "2");
-      }
-      return false;
-      break;
-    case TMUX_WIN3: // Macro Tmux Win3
-      if (record->event.pressed) {
-          SEND_STRING(SS_LCTL("a") "3");
-      }
-      return false;
-      break;
-    case TMUX_WIN4: // Macro Tmux Win4
-      if (record->event.pressed) {
-          SEND_STRING(SS_LCTL("a") "4");
-      }
-      return false;
-      break;
-    case TMUX_WIN5: // Macro Tmux Win5
-      if (record->event.pressed) {
-          SEND_STRING(SS_LCTL("a") "5");
-      }
-      return false;
-      break;
-    case TMUX_ZOOM: // Macro Tmux Zoom toggle
-      if (record->event.pressed) {
-          SEND_STRING(SS_LCTL("a") "z");
-      }
-      return false;
-      break;
-    case TMUX_LWIN: // Macro Tmux Left Window
-      if (record->event.pressed) {
-          SEND_STRING(SS_LCTL("a") SS_LCTL("h"));
-      }
-      return false;
-      break;
-    case TMUX_RWIN: // Macro Tmux Right Window
-      if (record->event.pressed) {
-          SEND_STRING(SS_LCTL("a") SS_LCTL("l"));
-      }
-      return false;
-      break;
-    case TMUX_HSPL: // Macro Tmux Horizontal Split
-      if (record->event.pressed) {
-          SEND_STRING(SS_LCTL("a") SS_LSFT("'"));
-      }
-      return false;
-      break;
-    case TMUX_VSPL: // Macro Tmux Vertical Split
-      if (record->event.pressed) {
-          SEND_STRING(SS_LCTL("a") "/");
+          SEND_STRING("123456789000Aa");
       }
       return false;
       break;
